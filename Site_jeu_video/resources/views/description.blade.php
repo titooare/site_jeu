@@ -12,7 +12,7 @@
               
                 <div class="card" style="width: 18rem;">
 									<p>{{ $jeu->nom }}</p>
-                   <img class="card-img-top" src="../{{ $jeu->jacket }}" alt="Card image cap">
+                   <img class="card-img-top" src="{{asset($jeu -> jacket)}}" alt="Card image cap">
                      <div class="card-body">
                         <div class="container">
                           <div class="row">

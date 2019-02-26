@@ -10,7 +10,7 @@
     
     	  <div class="card col-4 p-4 mb-4 ">
 
-                    <img class="card-img-top" src="{{$donnee -> jacket}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{asset($donnee -> jacket)}}" alt="Card image cap">
 
                     <div class="card-body">
                       <h5 class="card-title">{{$donnee -> nom }}<br /></h5>
