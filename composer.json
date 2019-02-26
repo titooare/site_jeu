@@ -1,0 +1,6 @@
+{
+	"name" : "site_jeu_video/site_jeu_video",
+	"require" : {
+		"laravel/laravel" : "~5.7"
+	}
+}
