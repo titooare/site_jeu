@@ -56,9 +56,28 @@ class arrayController extends Controller
         $jeu = DB::table('jeux_video')->where('id', $id)->first();
         
         return view('description')->with('jeu', $jeu);
-    
+        
+        
     }
+    
 
+    
+    public function shows($id)
+    {
+        session()->push('ids',$id);
+        
+       
+        $ids= session('ids');
+        foreach ($ids as $id){
+            $jeux[] = DB::table('jeux_video')->where('id', $id)->get();
+            
+        }
+        
+        
+        return view('panier')->with('jeux', $jeux);
+        
+        
+    }
     /**
      * Show the form for editing the specified resource.
      *

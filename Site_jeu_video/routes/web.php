@@ -27,6 +27,8 @@ Route::get('/1', function () {
     
     Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
     
+    Route::get('/panier/{id}', 'arrayController@shows');
+    
     
 
         

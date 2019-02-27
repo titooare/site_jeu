@@ -17,7 +17,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-6">
-                               <p class="card-text"> <a href="../index%20_panier_doom.html" class="btn btn-danger">acheter</a></p>
+                               <p class="card-text"> <a href="../panier/{{$jeu -> ID }}" class="btn btn-danger">acheter</a></p>
 
                             </div>
                              <div class="col-3">
