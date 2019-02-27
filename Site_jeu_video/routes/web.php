@@ -22,10 +22,33 @@ Route::get('/1', function () {
     return view('addjeu');
 });
 
+
     
-    Auth::routes(['verify' => true]);
+ Auth::routes(['verify' => true]);
     
-    Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
+ Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
+ 
+ Route::resource('users', 'UserController');
+ 
+ Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);
+ 
+ Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy']]);
+ 
+ Route::resource('comments', 'Front\CommentController', ['only' => ['update', 'destroy']]);
+ 
+ Route::resource('comments', 'CommentController', ['only' => ['index', 'destroy']]);
+ 
+ Route::resource('users', 'UserController', ['only' => ['index', 'edit', 'update', 'destroy']]);
+ 
+ Route::resource('posts', 'PostController');
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     
     
 
