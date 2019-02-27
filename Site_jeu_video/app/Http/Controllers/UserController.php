@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class arrayController extends Controller
+use App\User;
+
+class UserController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $reponse = DB::SELECT('SELECT * FROM jeux_video ORDER BY ID DESC LIMIT 0, 18');
-        
-        return view('view' , ['reponse' => $reponse]);
+        $users = User::all();
+        return $users;
     }
 
     /**
@@ -26,9 +26,8 @@ class arrayController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.register');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,8 +36,9 @@ class arrayController extends Controller
      */
     public function store(Request $request)
     {
-     DB::insert('INSERT INTO jeux_video_occasion(nom, console, prix, nbre_joueurs_max, commentaires, jacket) VALUES(:nom, :console, :prix, :nbre_joueurs_max, :commentaires, :jacket)');
-            
+        User::create($request->all());
+        
+        return "Utilisateur créé !";//
     }
 
     /**
@@ -47,25 +47,20 @@ class arrayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        
-        
-        $jeu = DB::table('jeux_video')->where('id', $id)->first();
-        
-        return view('description')->with('jeu', $jeu);
-    
+        echo 'Nom :' . $user->name . '<br>';
+        echo 'Email :' . $user->email . '<br>';//
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('auth.passwords.reset', compact('user'));//
     }
 
     /**
@@ -75,9 +70,10 @@ class arrayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,User $user)
     {
-        //
+        $user->update($request->all());
+        return "Utilisateur modifié !";//
     }
 
     /**
@@ -86,8 +82,15 @@ class arrayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyForm(User $user)
     {
-        //
+        return view('destroy', compact('user'));
+    }
+    
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return 'Utilisateur supprimé !';//
     }
 }
+

@@ -19,10 +19,12 @@ Route::get('/home', 'arrayController@index');
 Route::get('/description/{id}', 'arrayController@show');
 
 Route::get('/1', function () {
+    
     return view('addjeu');
 });
+Route::get('jeux/{id}','JeuController@show');
 
-
+Route::get('jeux','JeuController@index');
     
  Auth::routes(['verify' => true]);
     
@@ -30,17 +32,19 @@ Route::get('/1', function () {
  
  Route::resource('users', 'UserController');
  
- Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);
+ 
  
  Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy']]);
  
- Route::resource('comments', 'Front\CommentController', ['only' => ['update', 'destroy']]);
  
- Route::resource('comments', 'CommentController', ['only' => ['index', 'destroy']]);
+ 
+ 
  
  Route::resource('users', 'UserController', ['only' => ['index', 'edit', 'update', 'destroy']]);
  
- Route::resource('posts', 'PostController');
+
+ 
+ Route::get('users/{user}/destroy', 'UserController@destroyForm');
  
  
  

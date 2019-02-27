@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Jeu;
 
-class arrayController extends Controller
+class JeuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class arrayController extends Controller
      */
     public function index()
     {
-        $reponse = DB::SELECT('SELECT * FROM jeux_video ORDER BY ID DESC LIMIT 0, 18');
+        $jeux = Jeu::all();
         
-        return view('view' , ['reponse' => $reponse]);
+       return $jeux;
     }
 
     /**
@@ -37,8 +37,7 @@ class arrayController extends Controller
      */
     public function store(Request $request)
     {
-     DB::insert('INSERT INTO jeux_video_occasion(nom, console, prix, nbre_joueurs_max, commentaires, jacket) VALUES(:nom, :console, :prix, :nbre_joueurs_max, :commentaires, :jacket)');
-            
+        //
     }
 
     /**
@@ -49,12 +48,8 @@ class arrayController extends Controller
      */
     public function show($id)
     {
-        
-        
-        $jeu = DB::table('jeux_video')->where('id', $id)->first();
-        
-        return view('description')->with('jeu', $jeu);
-    
+        $jeu = Jeu::find($id);
+        return $jeu;
     }
 
     /**
