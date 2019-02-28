@@ -11,7 +11,7 @@
                 
             <div class="card  col-8 mb-2">
                   <div class="card-header row">
-                  <div class="col-6"> <a href="{{asset('/home')}}"><button  type="button" class="btn btn-warning btn-lg">continuer mes achats</button></a></div>
+                  <div class="col-6"> <a href="{{asset('/home')}}"><button  type="button" class="btn btn-warning btn-lg"><b>Continuer mes achats</b></button></a></div>
                   <div class ="col-6"><b>MON PANIER </b></div>
                     
                   </div>
@@ -102,7 +102,7 @@
                 
                 
                 
-                           <div class="card text-center col-4">
+                          <div class="card text-center col-4">
                            
                   <div class="card-header ">
                       <b>TOTAL</b>

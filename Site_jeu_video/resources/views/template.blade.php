@@ -65,7 +65,7 @@
                             <div class="carousel-item active">
                                  <img class="d-block w-100" src="{{asset('/img/2644.jpg')}}" alt="First slide">
 
-                              <h3><a href="#" class="badge badge-warning btnCarousel">acheter</a></h3>
+                              <h3><a href="description/52" class="badge badge-warning btnCarousel">acheter</a></h3>
                             </div>
                             <div class="carousel-item">
                               <img class="d-block w-100" src="{{asset('/img/rdr2.jpg')}}" alt="Second slide">

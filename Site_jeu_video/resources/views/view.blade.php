@@ -8,7 +8,7 @@
     	
             
     
-    	  <div class="card col-4 p-4 mb-4 ">
+    	  <div class="card col-4 p-4 mb-4  ">
 
                     <img class="card-img-top" src="{{asset($donnee -> jacket)}}" alt="Card image cap">
 
