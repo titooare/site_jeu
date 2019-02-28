@@ -11,7 +11,7 @@
 
 <div class="">
 <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
-<a href="{{asset(route('home'))}}"><img src="{{asset('/img/g2a-logo-ad-4.png')}}"></a>
+<a href="{{asset('/home')}}"><img src="{{asset('/img/g2a-logo-ad-4.png')}}"></a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                       <a href="index.php"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-1  " type="submit"><img class="utilisateur  " src="{{asset('/img/600px-Xbox_one_logo.svg.png')}}"></button></a>
 
 												<a href="index2.php"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-4 mr-5 " type="submit"><img class="utilisateur  " src="{{asset('/img/kisspng-playstation-4-playstation-3-5afd65389ec731.0511940015265559606504.png')}}"></button></a>
-												<a href="index3.php"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-1  " type="submit"><img class="utilisateur  " src="{{asset('/img/occasion.png')}}"></button></a>
+												<a href="{{asset('/panier/1')}}"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-1  " type="submit"><img class="utilisateur  " src="{{asset('/img/panier.png')}}"></button></a>
 												</div>
 
 											<form class="form-inline" method="post" action="recherche.php" >
@@ -137,6 +137,9 @@
         })
         $('[data-toggle="tooltip"]').tooltip()
     })
+    
+     
+
 </script>
     </footer>
 </html>

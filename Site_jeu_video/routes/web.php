@@ -29,6 +29,8 @@ Route::get('/1', function () {
     
     Route::get('/panier/{id}', 'arrayController@shows');
     
+  
+        
     
 
         
