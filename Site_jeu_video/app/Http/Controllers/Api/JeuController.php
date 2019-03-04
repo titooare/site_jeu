@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\Jeu;
 
-class arrayController extends Controller
+class JeuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,9 @@ class arrayController extends Controller
      */
     public function index()
     {
-        $reponse = DB::SELECT('SELECT * FROM jeux_video ORDER BY ID DESC LIMIT 0, 18');
+        $jeux = Jeu::all();
         
-        
-       
-       return view('view' , ['reponse' => $reponse]);
+       return $jeux;
     }
 
     /**
@@ -39,8 +38,7 @@ class arrayController extends Controller
      */
     public function store(Request $request)
     {
-     DB::insert('INSERT INTO jeux_video_occasion(nom, console, prix, nbre_joueurs_max, commentaires, jacket) VALUES(:nom, :console, :prix, :nbre_joueurs_max, :commentaires, :jacket)');
-            
+        //
     }
 
     /**
@@ -51,34 +49,10 @@ class arrayController extends Controller
      */
     public function show($id)
     {
-        
-        
-        $jeu = DB::table('jeux_video')->where('id', $id)->first();
-        
-        return view('description')->with('jeu', $jeu);
-        
-        
+        $jeu = Jeu::find($id);
+        return $jeu;
     }
-    
 
-    
-    public function shows($id)
-    {
-        
-        session()->push('ids',$id);
-        
-       
-        $ids= session('ids');
-        foreach ($ids as $id){
-            $jeux[] = DB::table('jeux_video')->where('id', $id)->get();
-            
-        }
-        
-        
-        return view('panier')->with('jeux', $jeux);
-        
-        
-    }
     /**
      * Show the form for editing the specified resource.
      *

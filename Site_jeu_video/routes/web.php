@@ -23,12 +23,21 @@ Route::get('/1', function () {
 });
 
     
-    Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]);
     
-    Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
     
-    Route::get('/panier/{id}', 'arrayController@shows');
+Route::get('/panier/{id}', 'arrayController@shows');
     
+Route::resource('users', 'UserController');
+ 
+Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy']]);
+ 
+Route::resource('users', 'UserController', ['only' => ['index', 'edit', 'update', 'destroy']]);
+ 
+Route::get('users/{user}/destroy', 'UserController@destroyForm');
+
+
   
         
     

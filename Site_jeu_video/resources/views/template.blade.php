@@ -35,9 +35,9 @@
 </nav>
 <nav class="navbar navbar-dark bg-dark">
                         <div>
-                      <a href="index.php"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-1  " type="submit"><img class="utilisateur  " src="{{asset('/img/600px-Xbox_one_logo.svg.png')}}"></button></a>
+                      <a href="{{asset('api/jeux/1')}}"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-1  " type="submit"><img class="utilisateur  " src="{{asset('/img/600px-Xbox_one_logo.svg.png')}}"></button></a>
 
-												<a href="index2.php"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-4 mr-5 " type="submit"><img class="utilisateur  " src="{{asset('/img/kisspng-playstation-4-playstation-3-5afd65389ec731.0511940015265559606504.png')}}"></button></a>
+												<a href="{{asset('api/jeux')}}"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-4 mr-5 " type="submit"><img class="utilisateur  " src="{{asset('/img/kisspng-playstation-4-playstation-3-5afd65389ec731.0511940015265559606504.png')}}"></button></a>
 												<a href="{{asset('/panier/1')}}"> <button class="btn btn-outline-warning my-2 my-sm-0 ml-1  " type="submit"><img class="utilisateur  " src="{{asset('/img/panier.png')}}"></button></a>
 												</div>
 

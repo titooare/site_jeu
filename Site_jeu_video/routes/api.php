@@ -16,3 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//  Route::namespace('Api')->group(function() {
+     
+//  Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);
+//     });
+
+//      Route::get('jeux/{id}','JeuController@show');
+     
+//      Route::get('jeux','JeuController@index');
+     
+     Route::namespace('Api')->group(function(){
+         Route::resource('jeux','JeuController',['only' => ['index','show']]);
+     });

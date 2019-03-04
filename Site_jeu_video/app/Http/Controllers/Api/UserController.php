@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class arrayController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,8 @@ class arrayController extends Controller
      */
     public function index()
     {
-        $reponse = DB::SELECT('SELECT * FROM jeux_video ORDER BY ID DESC LIMIT 0, 18');
-        
-        
-       
-       return view('view' , ['reponse' => $reponse]);
+        return User::all(); 
+       //
     }
 
     /**
@@ -39,8 +36,7 @@ class arrayController extends Controller
      */
     public function store(Request $request)
     {
-     DB::insert('INSERT INTO jeux_video_occasion(nom, console, prix, nbre_joueurs_max, commentaires, jacket) VALUES(:nom, :console, :prix, :nbre_joueurs_max, :commentaires, :jacket)');
-            
+        User::create($request->all()); //
     }
 
     /**
@@ -51,34 +47,9 @@ class arrayController extends Controller
      */
     public function show($id)
     {
-        
-        
-        $jeu = DB::table('jeux_video')->where('id', $id)->first();
-        
-        return view('description')->with('jeu', $jeu);
-        
-        
+        return $user; //
     }
-    
 
-    
-    public function shows($id)
-    {
-        
-        session()->push('ids',$id);
-        
-       
-        $ids= session('ids');
-        foreach ($ids as $id){
-            $jeux[] = DB::table('jeux_video')->where('id', $id)->get();
-            
-        }
-        
-        
-        return view('panier')->with('jeux', $jeux);
-        
-        
-    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -99,7 +70,7 @@ class arrayController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user->update($request->all()); //
     }
 
     /**
@@ -110,6 +81,6 @@ class arrayController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user->delete(); //
     }
 }
